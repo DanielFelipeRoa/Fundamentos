@@ -165,7 +165,9 @@ public class Registro extends javax.swing.JFrame {
             String contrasena = "contrasenadeprueba1";
             String destinatario = txtCorreo.getText();
             String asunto = "Contraseña para ingresar a fundamentos";
-            String mensaje = "Su contraseña es: 24456731";
+            String mensaje = "Buen día \n Su contraseña es: 24456731 \n Este correo"
+                    + " ha sido enviado automáticamente por el código de Daniel"
+                    + " Camargo, estudiante de la Universidad Distrital";
             
             MimeMessage message = new MimeMessage(sesion);
             message.setFrom(new InternetAddress(correoEnvia));

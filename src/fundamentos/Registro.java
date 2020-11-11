@@ -152,35 +152,32 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNuevousuarioActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        /**
-        Properties propiedad=new Properties();
-        propiedad.setProperty("mail.smtp.host", "smtp.gmail.com");
-        propiedad.setProperty("mail.smtp.starttls.enable", "true");
-        propiedad.setProperty("mail.smtp.port", "587");
-        propiedad.setProperty("mail.smtp.auth", "true");
-        
-        Session sesion = Session.getDefaultInstance(propiedad);
-        
-        String correoEnvia = "danielfeliperoa68@gmail.com";
-        String contrasena = "contrasenadeprueba1";
-        String destinatario = correo;
-        String asunto = "Contraseña para ingresar a fundamentos";
-        String mensaje = "Su contraseña es: 24456731";
-        
-        MimeMessage mail = new MimeMessage(sesion);
-        
         try {
-            mail.setFrom(new InternetAddress (correoEnvia));
-            mail.addRecipient(Message.RecipientType.TO, new InternetAddress(destinatario));
-            mail.setSubject(asunto);
-            mail.setText(mensaje);
+            Properties propiedad=new Properties();
+            propiedad.setProperty("mail.smtp.host", "smtp.gmail.com");
+            propiedad.setProperty("mail.smtp.starttls.enable", "true");
+            propiedad.setProperty("mail.smtp.port", "587");
+            propiedad.setProperty("mail.smtp.auth", "true");
             
+            Session sesion = Session.getDefaultInstance(propiedad);
+            
+            String correoEnvia = "danielfeliperoa68@gmail.com";
+            String contrasena = "contrasenadeprueba1";
+            String destinatario = txtCorreo.getText();
+            String asunto = "Contraseña para ingresar a fundamentos";
+            String mensaje = "Su contraseña es: 24456731";
+            
+            MimeMessage message = new MimeMessage(sesion);
+            message.setFrom(new InternetAddress(correoEnvia));
+            
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(destinatario));
+            message.setSubject(asunto);
+            message.setText(mensaje);
             
             Transport transporte = sesion.getTransport("smtp");
             transporte.connect(correoEnvia,contrasena);
-            transporte.sendMessage(mail, mail.getRecipients(Message.RecipientType.TO));
+            transporte.sendMessage(message, message.getRecipients(Message.RecipientType.TO));
             transporte.close();
-            
             JOptionPane.showMessageDialog(null, "Correo enviado");
             
         } catch (AddressException ex) {
@@ -188,10 +185,9 @@ public class Registro extends javax.swing.JFrame {
         } catch (MessagingException ex) {
             Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
         }
-        * */
         InterfazLogeo obj1=new InterfazLogeo();
-        obj1.setVisible(true);
-        dispose();
+            obj1.setVisible(true);
+            dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed

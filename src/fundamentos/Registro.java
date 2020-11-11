@@ -16,6 +16,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
+import java.util.Random;
 
 /**
  *
@@ -152,6 +153,9 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNuevousuarioActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Random aleatorio = new Random();
+        int N = aleatorio.nextInt(999999);
+        String numCadena= String.valueOf(N);
         try {
             Properties propiedad=new Properties();
             propiedad.setProperty("mail.smtp.host", "smtp.gmail.com");
@@ -165,10 +169,14 @@ public class Registro extends javax.swing.JFrame {
             String contrasena = "contrasenadeprueba1";
             String destinatario = txtCorreo.getText();
             String asunto = "Contraseña para ingresar a fundamentos";
-            String mensaje = "Buen día \n Su contraseña es: 24456731 \n Este correo"
+            String mensaje = "Buen día \n Su contraseña es: " + numCadena;
+            
+                    
+            /*       
+            + "\n Este correo"
                     + " ha sido enviado automáticamente por el código de Daniel"
                     + " Camargo, estudiante de la Universidad Distrital";
-            
+            */
             MimeMessage message = new MimeMessage(sesion);
             message.setFrom(new InternetAddress(correoEnvia));
             

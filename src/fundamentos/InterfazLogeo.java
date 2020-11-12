@@ -5,17 +5,21 @@
  */
 package fundamentos;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author camar
  */
 public class InterfazLogeo extends javax.swing.JFrame {
-    
+    String Userlogin;
+    String Passlogin;
     
     /**
      * Creates new form InterfazLogeo
      */
     public InterfazLogeo() {
+        
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -146,13 +150,20 @@ public class InterfazLogeo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-
-        Entrada obj2=new Entrada();
-        obj2.setVisible(true);
-        dispose();
+        String Comprobaruser=txtUsuario.getText();
+        String Comprobarpass=Password.getText();
+        if((Comprobaruser==Userlogin)&&(Comprobarpass==Passlogin)){
+            Entrada obj2=new Entrada();
+            obj2.setVisible(true);
+            dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Usuario no registrado");
+        }
+        
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
+        
         Registro obj=new Registro();
         obj.setVisible(true);
         dispose();
